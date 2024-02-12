@@ -1,0 +1,95 @@
+{
+  "settings": {
+    "breadcrumbs.enabled": true,
+    "editor.autoIndent": "full",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.fontSize": 14,
+    "editor.formatOnSave": true,
+    "editor.guides.bracketPairs": "active",
+    "editor.renderWhitespace": "all",
+    "editor.rulers": [120],
+    "editor.suggestSelection": "recentlyUsedByPrefix",
+    "explorer.autoReveal": true,
+    "explorer.sortOrder": "type",
+    "extensions.ignoreRecommendations": false,
+    "files.autoSave": "onFocusChange",
+    "files.eol": "\n",
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "files.watcherExclude": {
+      "**/.git": true,
+      "**/tmp": true
+    },
+    "python.terminal.activateEnvironment": false,
+    "search.exclude": {
+      "**/.git": true,
+      "**/tmp": true
+    },
+    "terminal.integrated.fontFamily": "Hack Nerd Font",
+    "window.title": "${activeEditorMedium}${separator}${rootName}${separator}${rootPath}",
+    "window.zoomLevel": 0,
+    "workbench.editor.enablePreview": false,
+    "workbench.tree.indent": 24,
+    "[dockerfile]": {
+      "editor.formatOnSave": false,
+      "editor.insertSpaces": true,
+      "editor.tabSize": 4
+    },
+    "[json]": {
+      "editor.insertSpaces": true,
+      "editor.tabSize": 2
+    },
+    "[python]": {
+      "editor.tabSize": 4,
+      "editor.insertSpaces": true
+    },
+    "[makefile]": {
+      "editor.insertSpaces": false,
+      "editor.tabSize": 2
+    },
+    "[markdown]": {
+      "editor.insertSpaces": true,
+      "editor.tabSize": 2
+    },
+    "[yaml]": {
+      "editor.insertSpaces": true,
+      "editor.tabSize": 2
+    },
+    "yaml.customTags": [
+      "!And",
+      "!And sequence",
+      "!If",
+      "!If sequence",
+      "!Not",
+      "!Not sequence",
+      "!Equals",
+      "!Equals sequence",
+      "!Or",
+      "!Or sequence",
+      "!FindInMap",
+      "!FindInMap sequence",
+      "!Base64",
+      "!Join",
+      "!Join sequence",
+      "!Cidr",
+      "!Ref",
+      "!Sub",
+      "!Sub sequence",
+      "!GetAtt",
+      "!GetAZs",
+      "!ImportValue",
+      "!ImportValue sequence",
+      "!Select",
+      "!Select sequence",
+      "!Split",
+      "!Split sequence"
+    ],
+    "workbench.colorTheme": "Solarized Dark"
+  },
+  "folders": [
+    {
+      "path": "."
+    }
+  ]
+}
