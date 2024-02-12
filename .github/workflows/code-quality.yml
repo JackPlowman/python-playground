@@ -20,3 +20,7 @@ jobs:
           fetch-depth: 0
       - name: EditorConfig Check
         uses: zbeekman/EditorConfig-Action@v1.1.1
+      - name: Python Format Check
+        run: make python-format-check
+      - name: Python Lint Check
+        run: make python-lint-check

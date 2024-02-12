@@ -1,5 +1,5 @@
 python-lint:
-	ruff check .applications --fix
+	ruff check applications --fix
 
 python-lint-check:
 	ruff check applications
