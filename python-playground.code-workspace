@@ -3,7 +3,7 @@
     "breadcrumbs.enabled": true,
     "editor.autoIndent": "full",
     "editor.bracketPairColorization.enabled": true,
-    "editor.fontSize": 14,
+    "editor.fontSize": 16,
     "editor.formatOnSave": true,
     "editor.guides.bracketPairs": "active",
     "editor.renderWhitespace": "all",
