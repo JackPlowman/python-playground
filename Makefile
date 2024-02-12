@@ -1,5 +1,5 @@
 development-install:
-	pip install --upgrade pip && pip install -r ../requirements-dev.txt
+	pip install --upgrade pip && pip install -r applications/requirements-dev.txt
 
 python-lint:
 	ruff check applications --fix
