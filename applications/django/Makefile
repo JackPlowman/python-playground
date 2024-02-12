@@ -1,8 +1,5 @@
 install:
-	make development-install production-install
-
-development-install:
-	pip install --upgrade pip && pip install -r ../requirements-dev.txt
+	make production-install
 
 production-install:
 	pip install --upgrade pip && pip install -r requirements.txt

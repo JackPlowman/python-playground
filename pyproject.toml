@@ -141,9 +141,8 @@ exclude = [
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 
 [tool.ruff.lint.per-file-ignores]
-"applications/**test_*.py" = [
-  "S101", # Allow `assert` in tests.
-]
+"applications/**test_*.py" = ["S101"]
+"applications/django/manage.py" = ["TRY003", "EM101"]
 
 [tool.ruff.lint.pydocstyle]
 convention = "google" # Use Google docstring convention.

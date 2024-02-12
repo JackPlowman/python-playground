@@ -1,5 +1,8 @@
+development-install:
+	pip install --upgrade pip && pip install -r applications/requirements-dev.txt
+
 python-lint:
-	ruff check .applications --fix
+	ruff check applications --fix
 
 python-lint-check:
 	ruff check applications
