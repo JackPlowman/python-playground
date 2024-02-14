@@ -12,7 +12,13 @@ run:
 	SECRET_KEY=development python manage.py runserver
 
 test:
+	make unit-test mutation-test
+
+unit-test:
 	DJANGO_SETTINGS_MODULE=api.settings pytest --cov=hotels
+
+mutation-test:
+	mutmut run --paths-to-mutate "hotels/" --tests-dir "hotels/tests"
 
 clean:
 	find . \( \

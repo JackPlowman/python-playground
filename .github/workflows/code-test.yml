@@ -25,4 +25,20 @@ jobs:
         run: make install
         working-directory: ./applications/${{ matrix.folder }}
       - name: Unit Test
-        uses: make test
+        uses: make unit-test
+  mutation-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        folder: [django_rest]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Python Development Requirements
+        run: make development-install
+      - name: Install Production Dependencies
+        run: make install
+        working-directory: ./applications/${{ matrix.folder }}
+      - name: Mutation Test
+        uses: make mutation-test
