@@ -1,4 +1,4 @@
-name: "Code Quality"
+name: "Code Test"
 
 on:
   push:
@@ -10,17 +10,19 @@ permissions:
   contents: read
 
 jobs:
-  check-code-quality:
+  unit-test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        folder: [django_rest]
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: EditorConfig Check
-        uses: editorconfig-checker/action-editorconfig-checker@v2
       - name: Python Development Requirements
         run: make development-install
-      - name: Python Format Check
-        run: make python-format-check
-      - name: Python Lint Check
-        run: make python-lint-check
+      - name: Install Production Dependencies
+        run: make install
+        working-directory: ./applications/${{ matrix.folder }}
+      - name: Unit Test
+        uses: make test
