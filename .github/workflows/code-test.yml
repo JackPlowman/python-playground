@@ -26,6 +26,8 @@ jobs:
         working-directory: ./applications/${{ matrix.folder }}
       - name: Unit Test
         run: make unit-test
+        working-directory: ./applications/${{ matrix.folder }}
+
   mutation-test:
     runs-on: ubuntu-latest
     strategy:
@@ -42,3 +44,4 @@ jobs:
         working-directory: ./applications/${{ matrix.folder }}
       - name: Mutation Test
         run: make mutation-test
+        working-directory: ./applications/${{ matrix.folder }}
