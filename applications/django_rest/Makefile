@@ -18,7 +18,7 @@ unit-test:
 	DJANGO_SETTINGS_MODULE=api.settings pytest --cov=hotels
 
 mutation-test:
-	mutmut run --paths-to-mutate "hotels/" --tests-dir "hotels/tests"
+	mutmut run --paths-to-mutate "hotels/" --tests-dir "hotels/tests,hotels/migrations"
 
 clean:
 	find . \( \
@@ -31,7 +31,9 @@ clean:
 		-name '*.pyo' -o \
 		-name 'coverage.xml' -o \
 		-name 'db.sqlite3' -o \
-		-name 'htmlcov' \
+		-name 'htmlcov' -o \
+		-name 'html' -o \
+		-name '.mutmut-cache' \
 	\) -print | xargs rm -rfv
 
 coverage-html:
