@@ -12,6 +12,9 @@ run:
 	SECRET_KEY=development python manage.py runserver
 
 test:
+	make unit-test
+
+unit-test:
 	DJANGO_SETTINGS_MODULE=api.settings pytest --cov=hotels
 
 clean:
@@ -25,7 +28,9 @@ clean:
 		-name '*.pyo' -o \
 		-name 'coverage.xml' -o \
 		-name 'db.sqlite3' -o \
-		-name 'htmlcov' \
+		-name 'htmlcov' -o \
+		-name 'html' -o \
+		-name '.mutmut-cache' \
 	\) -print | xargs rm -rfv
 
 coverage-html:

@@ -16,13 +16,19 @@ jobs:
       matrix:
         folder: [django_rest]
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
       - name: Python Development Requirements
         run: make development-install
       - name: Install Production Dependencies
         run: make install
         working-directory: ./applications/${{ matrix.folder }}
       - name: Unit Test
-        uses: make test
+        run: make unit-test
+        working-directory: ./applications/${{ matrix.folder }}
