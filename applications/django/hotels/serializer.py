@@ -1,3 +1,5 @@
+from typing import ClassVar
+
 from rest_framework.serializers import ModelSerializer
 
 from .models import Hotels
@@ -10,4 +12,4 @@ class HotelsSerializer(ModelSerializer):
         """Meta class to map serializer's fields with the model fields."""
 
         model = Hotels
-        fields = ["id", "name", "address", "phone"]
+        fields: ClassVar[list] = ["id", "name", "address", "phone"]

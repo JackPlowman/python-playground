@@ -56,15 +56,11 @@ select = [
   "YTT",
 ]
 ignore = [
-  "D100",    # Missing docstring in public module
-  "D104",    # Missing docstring in public package
-  "PTH123",  # Use `pathlib.Path` instead of `os.path`
-  "G004",    # Logging statement uses f-string
-  "PLR0913", # Too many arguments in function call
-  "DTZ007",  # Allow Datetime used as timezone in tests.
-  "TID252",  # Allow Relative imports from parent modules
   "COM812",  # Ignore due to conflict with Ruff formatter
   "ISC001",  # Ignore due to conflict with Ruff formatter
+  "PLR2004",
+  "D104",
+  "D100",
 ]
 
 # Allow autofix for all enabled rules (when `--fix`) is provided.
