@@ -1,0 +1,8 @@
+post http://127.0.0.1:8000/rest/hotels HTTP/2.0
+content-type: application/json
+
+{
+  "name": "Hotel 1",
+  "address": "Address 1",
+  "phone": "123456789"
+}
