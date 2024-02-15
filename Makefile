@@ -15,3 +15,6 @@ python-format-check:
 
 python-pre-commit:
 	make python-lint python-format
+
+coverage-combine-and-report:
+	coverage report
