@@ -67,7 +67,7 @@ jobs:
             -Dsonar.sources=applications,containers,deployment,requests
             -Dsonar.organization=jackplowman
             -Dsonar.projectKey=JackPlowman_python-playground
-            -Dsonar.coverage.exclusions=tests/**,**/tests/**
+            -Dsonar.coverage.exclusions=**/tests/**,containers,deployment,requests
             -Dsonar.python.coverage.reportPaths=coverage.xml
             -Dsonar.python.version=3.12
             -Dsonar.exclusions=applications/**/tests/**
