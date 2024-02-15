@@ -1,0 +1,5 @@
+GET http://127.0.0.1:8000/rest/hotels/1 HTTP/1.1
+content-type: application/json
+
+HTTP/1.1 200 OK
+content-type: application/json
