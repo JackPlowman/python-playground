@@ -17,4 +17,5 @@ python-pre-commit:
 	make python-lint python-format
 
 coverage-combine-and-report:
-	coverage report
+	coverage combine django_rest-coverage
+	coverage xml

@@ -50,19 +50,18 @@ jobs:
       - name: Download all workflow run artifacts
         uses: actions/download-artifact@v4
       - name: Combine Coverage Reports
-        run: ls
-      - uses: sonarsource/sonarcloud-github-action@master
-        # SEE: https://github.com/SonarSource/sonarcloud-github-action
-        # env:
-        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        #   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        # with:
-        #   projectBaseDir: .
-        #   args: >
-        #     -Dsonar.sources=applications,containers,deployment,requests
-        #     -Dsonar.organization=jackplowman
-        #     -Dsonar.projectKey=JackPlowman_python-playground
-        #     -Dsonar.coverage.exclusions=tests/**,**/tests/**
-        #     -Dsonar.python.coverage.reportPaths=coverage.xml
-        #     -Dsonar.python.version=3.12
-        #     -Dsonar.exclusions=applications/**/tests/**
+        run: make coverage-combine-and-report
+      - uses: sonarsource/sonarcloud-github-action@v2.1.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          projectBaseDir: .
+          args: >
+            -Dsonar.sources=applications,containers,deployment,requests
+            -Dsonar.organization=jackplowman
+            -Dsonar.projectKey=JackPlowman_python-playground
+            -Dsonar.coverage.exclusions=tests/**,**/tests/**
+            -Dsonar.python.coverage.reportPaths=coverage.xml
+            -Dsonar.python.version=3.12
+            -Dsonar.exclusions=applications/**/tests/**
