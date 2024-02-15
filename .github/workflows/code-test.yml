@@ -49,6 +49,17 @@ jobs:
           fetch-depth: 0
       - name: Download all workflow run artifacts
         uses: actions/download-artifact@v4
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Python Development Requirements
+        run: make development-install
+      - name: test2
+        run: ls
+      - name: test3
+        run: ls
+        working-directory: ./django_rest-coverage
       - name: Combine Coverage Reports
         run: make coverage-combine-and-report
       - uses: sonarsource/sonarcloud-github-action@v2.1.1
