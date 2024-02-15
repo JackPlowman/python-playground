@@ -15,7 +15,7 @@ test:
 	make unit-test
 
 unit-test:
-	DJANGO_SETTINGS_MODULE=api.settings pytest --cov=hotels --cov-report term-missing -vv
+	DJANGO_SETTINGS_MODULE=api.settings pytest --cov=blog --cov-report term-missing
 
 clean:
 	find . \( \
@@ -35,10 +35,13 @@ coverage-html:
 	coverage html
 
 create-superuser:
-	python manage.py createsuperuser
+	DJANGO_SUPERUSER_USERNAME="admin" \
+	DJANGO_SUPERUSER_PASSWORD="development" \
+	DJANGO_SUPERUSER_EMAIL="admin@development.com" \
+	python manage.py createsuperuser --noinput
 
 migrate:
-	python manage.py migrate hotels
+	python manage.py migrate blog
 
 setup-db:
 	python manage.py migrate --run-syncdb

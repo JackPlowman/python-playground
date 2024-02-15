@@ -1,4 +1,4 @@
-"""URL configuration for core project.
+"""URL configuration for api project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -14,9 +14,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from blog.schema import schema
 from django.contrib import admin
 from django.urls import path
+from graphene_django.views import GraphQLView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("graphql/", GraphQLView.as_view(graphiql=True, schema=schema)),
 ]

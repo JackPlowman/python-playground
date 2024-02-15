@@ -1,4 +1,8 @@
-- Authenticate Django REST API
+# TODO
+
+- Improve Django REST API
+  - Authenticate Django REST API
+  - Apply Swagger to Django REST API
 - Create a new Django GraphQL API
 - Create a new Flask Rest API
 - Create a new Flask GraphQL API
