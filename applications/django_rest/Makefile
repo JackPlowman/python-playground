@@ -15,7 +15,7 @@ test:
 	make unit-test
 
 unit-test:
-	DJANGO_SETTINGS_MODULE=api.settings pytest --cov=hotels
+	DJANGO_SETTINGS_MODULE=api.settings pytest --cov=hotels --cov-report term-missing -vv
 
 clean:
 	find . \( \

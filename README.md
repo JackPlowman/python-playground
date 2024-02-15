@@ -4,7 +4,7 @@ My personal playground for Python experimentation
 
 ## Table of Contents
 
-# Quick Start
+## Quick Start
 
 From the root of the project, run the following commands:
 
@@ -13,3 +13,11 @@ From the root of the project, run the following commands:
   source applications/venv/bin/activate
   make development-install
 ```
+
+## Projects
+
+### Hotels - Django REST API
+
+A simple Django REST API for managing hotels.
+
+Location: `applications/django_rest`

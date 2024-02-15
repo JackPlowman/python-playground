@@ -16,8 +16,9 @@ Including another URLconf
 """
 from django.urls import path
 
-from .views import HotelsApiView
+from .views import HotelsDetailApiView, HotelsListApiView
 
 urlpatterns = [
-    path("hotels", HotelsApiView.as_view()),
+    path("hotels", HotelsListApiView.as_view()),
+    path("hotels/<int:hotel_id>/", HotelsDetailApiView.as_view()),
 ]

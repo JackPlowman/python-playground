@@ -12,3 +12,6 @@ python-format:
 
 python-format-check:
 	ruff format --check applications
+
+python-pre-commit:
+	make python-lint python-format

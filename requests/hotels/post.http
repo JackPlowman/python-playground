@@ -1,4 +1,4 @@
-post http://127.0.0.1:8000/rest/hotels HTTP/2.0
+POST http://127.0.0.1:8000/rest/hotels HTTP/1.1
 content-type: application/json
 
 {
