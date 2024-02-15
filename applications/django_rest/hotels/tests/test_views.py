@@ -2,7 +2,7 @@ from typing import Self
 
 import pytest
 
-from hotels.views import HotelsListApiView, HotelsDetailApiView
+from hotels.views import HotelsDetailApiView, HotelsListApiView
 
 
 class TestHotelsListApiView:
