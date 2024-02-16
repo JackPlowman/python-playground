@@ -1,6 +1,6 @@
 from typing import Any, Self
 
-from graphene import ID, Boolean, Field, List, Mutation, Schema, String, ObjectType
+from graphene import ID, Boolean, Field, List, Mutation, ObjectType, Schema, String
 from graphene_django import DjangoObjectType
 
 from .models import Author, Post
@@ -92,7 +92,7 @@ class UpdatePost(Mutation):
             post = Post.objects.get(pk=id)
         except Post.DoesNotExist as e:
             msg = "Post not found"
-            raise Exception(msg) from e
+            raise Exception(msg) from e  # noqa: TRY002
 
         if title is not None:
             post.title = title
@@ -136,7 +136,7 @@ class DeletePost(Mutation):
             post = Post.objects.get(pk=id)
         except Post.DoesNotExist as e:
             msg = "Post not found"
-            raise Exception(msg) from e
+            raise Exception(msg) from e  # noqa: TRY002
 
         post.delete()
         return DeletePost(success=True)
