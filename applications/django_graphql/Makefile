@@ -4,6 +4,12 @@ install:
 production-install:
 	pip install --upgrade pip && pip install -r requirements.txt
 
+build:
+	cp requirements.txt ../../containers/django_graphql
+	tar -czf ../../containers/django_graphql/app.tar.gz \
+		--exclude=tests api blog manage.py > /dev/null 2>&1
+	docker image build -t django_graphql ../../containers/django_graphql
+
 run-debug:
 	make reset-db setup-db
 	SECRET_KEY=development DEBUG=True python manage.py runserver
