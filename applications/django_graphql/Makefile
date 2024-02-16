@@ -15,7 +15,7 @@ test:
 	make unit-test
 
 unit-test:
-	DJANGO_SETTINGS_MODULE=api.settings pytest --cov=hotels --cov-report term-missing
+	DJANGO_SETTINGS_MODULE=api.settings pytest --cov=blog --cov-report term-missing
 
 clean:
 	find . \( \
@@ -41,7 +41,7 @@ create-superuser:
 	python manage.py createsuperuser --noinput
 
 migrate:
-	python manage.py migrate hotels
+	python manage.py migrate blog
 
 setup-db:
 	python manage.py migrate --run-syncdb

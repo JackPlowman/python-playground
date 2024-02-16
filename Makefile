@@ -1,6 +1,10 @@
 development-install:
 	pip install --upgrade pip && pip install -r applications/requirements-dev.txt
 
+install:
+	make development-install
+	find . -name "requirements.txt" -exec pip install -r {} \;
+
 python-lint:
 	ruff check applications --fix
 
@@ -17,5 +21,5 @@ python-pre-commit:
 	make python-lint python-format
 
 coverage-combine-and-report:
-	coverage combine django_rest-coverage/.coverage
+	coverage combine django_rest_coverage/.coverage django_graphql_coverage/.coverage
 	coverage xml

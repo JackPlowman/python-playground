@@ -21,3 +21,9 @@ From the root of the project, run the following commands:
 A simple Django REST API for managing hotels.
 
 Location: `applications/django_rest`
+
+### Blog - Django GraphQL API
+
+A simple Django GraphQL API for managing blog posts.
+
+Location: `applications/django_graphql`
