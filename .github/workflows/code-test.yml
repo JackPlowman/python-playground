@@ -70,4 +70,5 @@ jobs:
             -Dsonar.coverage.exclusions=**/tests/**,containers,deployment,requests
             -Dsonar.python.coverage.reportPaths=coverage.xml
             -Dsonar.python.version=3.12
-            -Dsonar.exclusions=applications/**/tests/**
+            -Dsonar.exclusions=applications/**/manage.py,applications/**/tests/**,applications/**/api/**,applications/**/migrations/**
+            -Dsonar.cpd.exclusions=applications/**/api/**
