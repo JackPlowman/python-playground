@@ -24,3 +24,4 @@
   - Deploy FastAPI Rest API
   - Deploy FastAPI GraphQL API
 - Add pull request spell check
+- Add python dead code check

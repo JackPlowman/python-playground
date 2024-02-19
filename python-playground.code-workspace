@@ -85,7 +85,8 @@
       "!Split",
       "!Split sequence"
     ],
-    "workbench.colorTheme": "Solarized Dark"
+    "workbench.colorTheme": "Solarized Dark",
+    "vale.valeCLI.config": "${workspaceFolder}/.vale.ini"
   },
   "folders": [
     {

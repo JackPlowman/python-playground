@@ -1,0 +1,23 @@
+name: "Code Test"
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+
+jobs:
+  prose-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        uses: errata-ai/vale-action@v2.1.0
+        with:
+          token: ${{ secrets.GH_TOKEN }}
