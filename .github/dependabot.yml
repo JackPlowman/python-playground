@@ -15,7 +15,7 @@ updates:
   - package-ecosystem: "pip"
     directory: "/applications"
     schedule:
-      interval: "monthly"
+      interval: "weekly"
     target-branch: "main"
     groups:
       python-dependencies:
