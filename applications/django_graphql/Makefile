@@ -15,7 +15,12 @@ run-debug:
 	SECRET_KEY=development DEBUG=True python manage.py runserver
 
 run:
-	SECRET_KEY=development python manage.py runserver
+	docker run -p 8000:8000 \
+		-e DJANGO_SUPERUSER_USERNAME=admin \
+		-e DJANGO_SUPERUSER_PASSWORD=sekret1 \
+		-e DJANGO_SUPERUSER_EMAIL=admin@example.com \
+		-e DEBUG=True \
+		django_graphql
 
 test:
 	make unit-test
