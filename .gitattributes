@@ -1,2 +1,3 @@
-.github linguist-vendored=false
-/requests linguist-vendored=false
+*.sql linguist-detectable
+*.http linguist-detectable
+*.yml linguist-detectable

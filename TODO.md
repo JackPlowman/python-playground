@@ -23,3 +23,6 @@
   - Deploy Flask GraphQL API
   - Deploy FastAPI Rest API
   - Deploy FastAPI GraphQL API
+- Add code diagram to repository
+- Add pull request template
+- Add pull request spell check
