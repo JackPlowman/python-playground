@@ -11,5 +11,10 @@
 - Create a new FastAPI Rest API
 - Create a new FastAPI GraphQL API
 - Build API Containers with Docker
+  - Flask Rest API
+  - Flask GraphQL API
+  - FastAPI Rest API
+  - FastAPI GraphQL API
 - Build API Containers with Podman
+- Run API Containers with Docker Compose
 - Deploy containerized APIs to Kubernetes Minikube

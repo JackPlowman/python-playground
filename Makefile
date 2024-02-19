@@ -1,3 +1,5 @@
+APPLICATIONS:=django_rest,django_graphql
+
 development-install:
 	pip install --upgrade pip && pip install -r applications/requirements-dev.txt
 
