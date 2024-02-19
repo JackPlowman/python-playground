@@ -13,9 +13,5 @@ ADD app.tar.gz /app
 
 EXPOSE 8000
 
-ENV DEBUG=True
-ENV SECRET_KEY=development
-
-USER nonroot
-
-CMD [ "python", "manage.py", "runserver"]
+CMD python manage.py migrate hotels && \
+    gunicorn -w 8 --bind 0.0.0.0:8000 api.wsgi

@@ -12,14 +12,15 @@ build:
 
 run-debug:
 	make reset-db setup-db
-	SECRET_KEY=development DEBUG=True python manage.py runserver
+	DEBUG=True python manage.py runserver
 
 run:
-	docker run -p 8000:8000 \
+	docker run -p 8000:8000 --detach \
 		-e DJANGO_SUPERUSER_USERNAME=admin \
 		-e DJANGO_SUPERUSER_PASSWORD=sekret1 \
 		-e DJANGO_SUPERUSER_EMAIL=admin@example.com \
 		django_rest
+
 test:
 	make unit-test
 

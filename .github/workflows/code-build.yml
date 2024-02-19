@@ -24,3 +24,7 @@ jobs:
         run: |
           cd applications/${{ matrix.folder }}
           make build
+      - name: Run Image
+        run: |
+          cd applications/${{ matrix.folder }}
+          make run
