@@ -1,0 +1,31 @@
+name: "Update repository visualisation"
+
+on:
+  pull_request:
+    types: [labeled]
+
+permissions: write-all
+
+jobs:
+  update-repository-visualisation:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.label.name == 'awaiting-repository-visualisation' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+          token: ${{ secrets.GH_TOKEN }}
+
+      - name: Update diagram
+        uses: githubocto/repo-visualizer@main
+        with:
+          excluded_paths: ".github"
+          output_file: "repository-visualisation.svg"
+
+      - name: Remove labels
+        uses: actions-ecosystem/action-remove-labels@v1
+        with:
+          labels: awaiting-repository-visualisation
+          github_token: ${{ secrets.GH_TOKEN }}

@@ -2,3 +2,5 @@
 *.sql linguist-detectable
 *.http linguist-detectable
 *.yml linguist-detectable
+*.txt linguist-detectable
+*.md linguist-detectable
