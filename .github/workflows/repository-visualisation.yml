@@ -22,6 +22,7 @@ jobs:
         uses: githubocto/repo-visualizer@main
         with:
           excluded_paths: ".github"
+          output_file: "repository-visualisation.svg"
 
       - name: Remove labels
         uses: actions-ecosystem/action-remove-labels@v1
