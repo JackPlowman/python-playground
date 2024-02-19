@@ -16,4 +16,6 @@ EXPOSE 8000
 ENV DEBUG=True
 ENV SECRET_KEY=development
 
+USER nonroot
+
 CMD [ "python", "manage.py", "runserver"]
