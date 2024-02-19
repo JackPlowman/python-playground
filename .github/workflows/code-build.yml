@@ -10,11 +10,12 @@ permissions:
   contents: read
 
 jobs:
-  build:
+  container-build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        folder: [django_rest, django_graphql]
+        build-application: [docker, podman]
+        application: [django_rest, django_graphql]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -22,9 +23,17 @@ jobs:
           fetch-depth: 0
       - name: Build Image
         run: |
-          cd applications/${{ matrix.folder }}
-          make build
+          cd applications/${{ matrix.application }}
+          make build-${{ matrix.build-application }}
       - name: Run Image
         run: |
-          cd applications/${{ matrix.folder }}
-          make run
+          cd applications/${{ matrix.application }}
+          make run-${{ matrix.build-application }}
+
+  container-build-complete:
+    runs-on: ubuntu-latest
+    needs: container-build
+    steps:
+      - name: Build Image
+        run: |
+          echo "Build Complete"
