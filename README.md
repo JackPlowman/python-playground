@@ -30,4 +30,4 @@ Location: `applications/django_graphql`
 
 ## Code Diagram
 
-![Visualization of the codebase](./diagram.svg)
+![Visualization of the codebase](./repository-visualisation.svg)
