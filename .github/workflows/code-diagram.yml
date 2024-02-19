@@ -18,11 +18,13 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GH_TOKEN }}
 
+      - name: Test1
+        run: git log --oneline
+
       - name: Update diagram
         uses: githubocto/repo-visualizer@main
         with:
           excluded_paths: ".github"
-          branch: ${{ github.event.pull_request.head.ref }}
 
       - name: Remove labels
         uses: actions-ecosystem/action-remove-labels@v1
