@@ -21,3 +21,15 @@ updates:
       python-dependencies:
         patterns:
           - "*"
+
+  - package-ecosystem: "docker"
+    directory: "/containers/django_rest"
+    schedule:
+      interval: "weekly"
+    target-branch: "main"
+
+  - package-ecosystem: "docker"
+    directory: "/containers/django_graphql"
+    schedule:
+      interval: "weekly"
+    target-branch: "main"
