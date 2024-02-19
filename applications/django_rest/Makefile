@@ -70,7 +70,7 @@ run-docker:
 build-podman:
 		cp requirements.txt ../../containers/podman/django_rest
 	tar -czf ../../containers/podman/django_rest/app.tar.gz \
-		--exclude=tests api blog manage.py > /dev/null 2>&1
+		--exclude=tests api hotels manage.py > /dev/null 2>&1
 	podman build -t django_rest ../../containers/podman/django_rest
 
 run-podman:
