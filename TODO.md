@@ -15,6 +15,14 @@
   - Flask GraphQL API
   - FastAPI Rest API
   - FastAPI GraphQL API
-- Build API Containers with Podman
 - Run API Containers with Docker Compose
 - Deploy containerized APIs to Kubernetes Minikube
+  - Deploy Django REST API
+  - Deploy Django GraphQL API
+  - Deploy Flask Rest API
+  - Deploy Flask GraphQL API
+  - Deploy FastAPI Rest API
+  - Deploy FastAPI GraphQL API
+- Add code diagram to repository
+- Add pull request template
+- Add pull request spell check
