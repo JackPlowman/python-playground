@@ -1,4 +1,4 @@
-name: "Create diagram"
+name: "Update repository visualisation"
 
 on:
   pull_request:
@@ -7,9 +7,9 @@ on:
 permissions: write-all
 
 jobs:
-  update-diagram:
+  update-repository-visualisation:
     runs-on: ubuntu-latest
-    if: ${{ github.event.label.name == 'awaiting-code-diagram' }}
+    if: ${{ github.event.label.name == 'awaiting-repository-visualisation' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -26,5 +26,5 @@ jobs:
       - name: Remove labels
         uses: actions-ecosystem/action-remove-labels@v1
         with:
-          labels: awaiting-code-diagram
+          labels: awaiting-repository-visualisation
           github_token: ${{ secrets.GH_TOKEN }}
