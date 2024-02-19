@@ -23,25 +23,11 @@ updates:
           - "*"
 
   - package-ecosystem: "docker"
-    directory: "/containers/docker/django_rest"
+    directory: "/containers"
     schedule:
       interval: "weekly"
     target-branch: "main"
-
-  - package-ecosystem: "docker"
-    directory: "/containers/docker/django_graphql"
-    schedule:
-      interval: "weekly"
-    target-branch: "main"
-
-  - package-ecosystem: "docker"
-    directory: "/containers/podman/django_rest"
-    schedule:
-      interval: "weekly"
-    target-branch: "main"
-
-  - package-ecosystem: "docker"
-    directory: "/containers/podman/django_graphql"
-    schedule:
-      interval: "weekly"
-    target-branch: "main"
+    groups:
+      docker-dependencies:
+        patterns:
+          - "*"
