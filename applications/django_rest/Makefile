@@ -4,22 +4,9 @@ install:
 production-install:
 	pip install --upgrade pip && pip install -r requirements.txt
 
-build:
-	cp requirements.txt ../../containers/django_rest
-	tar -czf ../../containers/django_rest/app.tar.gz \
-		--exclude=tests api hotels manage.py > /dev/null 2>&1
-	docker image build -t django_rest ../../containers/django_rest
-
 run-debug:
 	make reset-db setup-db
 	DEBUG=True python manage.py runserver
-
-run:
-	docker run -p 8000:8000 --detach \
-		-e DJANGO_SUPERUSER_USERNAME=admin \
-		-e DJANGO_SUPERUSER_PASSWORD=sekret1 \
-		-e DJANGO_SUPERUSER_EMAIL=admin@example.com \
-		django_rest
 
 test:
 	make unit-test
@@ -60,3 +47,35 @@ setup-db:
 
 reset-db:
 	rm -f db.sqlite3
+
+# ----------------------------------------------------------------------------
+# Docker
+
+build-docker:
+	cp requirements.txt ../../containers/docker/django_rest
+	tar -czf ../../containers/docker/django_rest/app.tar.gz \
+		--exclude=tests api hotels manage.py > /dev/null 2>&1
+	docker image build -t django_rest ../../containers/docker/django_rest
+
+run-docker:
+	docker run -p 8000:8000 --detach \
+		-e DJANGO_SUPERUSER_USERNAME=admin \
+		-e DJANGO_SUPERUSER_PASSWORD=sekret1 \
+		-e DJANGO_SUPERUSER_EMAIL=admin@example.com \
+		django_rest
+
+# ----------------------------------------------------------------------------
+# Podman
+
+build-podman:
+		cp requirements.txt ../../containers/podman/django_rest
+	tar -czf ../../containers/podman/django_rest/app.tar.gz \
+		--exclude=tests api blog manage.py > /dev/null 2>&1
+	podman build -t django_rest ../../containers/podman/django_rest
+
+run-podman:
+		podman run -p 8000:8000 --detach \
+		-e DJANGO_SUPERUSER_USERNAME=admin \
+		-e DJANGO_SUPERUSER_PASSWORD=sekret1 \
+		-e DJANGO_SUPERUSER_EMAIL=admin@example.com \
+		localhost/django_rest
