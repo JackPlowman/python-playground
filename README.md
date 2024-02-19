@@ -27,3 +27,7 @@ Location: `applications/django_rest`
 A simple Django GraphQL API for managing blog posts.
 
 Location: `applications/django_graphql`
+
+## Code Diagram
+
+![Visualization of the codebase](./diagram.svg)
