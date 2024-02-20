@@ -1,0 +1,9 @@
+services:
+  django_rest:
+    image: django_rest
+    ports:
+      - "8001:8000"
+  django_graphql:
+    image: django_graphql
+    ports:
+      - "8002:8000"

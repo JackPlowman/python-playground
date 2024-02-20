@@ -25,3 +25,12 @@ python-pre-commit:
 coverage-combine-and-report:
 	coverage combine django_rest_coverage/.coverage django_graphql_coverage/.coverage
 	coverage xml
+
+# ----------------------------------------------------------------------------
+# Docker Compose
+
+start:
+	docker-compose -f containers/docker-compose.yml up -d
+
+stop:
+	docker-compose -f containers/docker-compose.yml down
