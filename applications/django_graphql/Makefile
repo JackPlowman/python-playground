@@ -51,6 +51,9 @@ setup-db:
 reset-db:
 	rm -f db.sqlite3
 
+schema:
+	manage.py graphql_schema
+
 # ----------------------------------------------------------------------------
 # Docker
 
