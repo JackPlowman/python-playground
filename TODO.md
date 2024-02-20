@@ -23,5 +23,4 @@
   - Deploy Flask GraphQL API
   - Deploy FastAPI Rest API
   - Deploy FastAPI GraphQL API
-- Add check for updated code visualisation
 - Add pull request spell check
