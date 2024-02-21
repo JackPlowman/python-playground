@@ -16,11 +16,27 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - name: EditorConfig Check
         uses: editorconfig-checker/action-editorconfig-checker@v2
+
       - name: Python Development Requirements
         run: make development-install
+
       - name: Python Format Check
         run: make python-format-check
+
       - name: Python Lint Check
         run: make python-lint-check
+
+  prose-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        uses: errata-ai/vale-action@v2.1.0
+        with:
+          token: ${{ secrets.GH_TOKEN }}

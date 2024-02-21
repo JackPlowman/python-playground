@@ -24,5 +24,6 @@ jobs:
         with:
           languages: python
           queries: security-and-quality
+
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3

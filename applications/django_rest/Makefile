@@ -24,8 +24,7 @@ clean:
 		-name '*.pyd' -o \
 		-name '*.pyo' -o \
 		-name 'coverage.xml' -o \
-		-name 'db.sqlite3' -o \
-		-name 'htmlcov' -o \
+		-name 'db.sqlite3' \
 	\) -print | xargs rm -rfv
 
 coverage-html:
