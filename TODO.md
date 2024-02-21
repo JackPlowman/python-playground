@@ -5,7 +5,6 @@
   - Apply Swagger to Django REST API
 - Improve Django GraphQL API
   - Authenticate Django GraphQL API
-  - Apply Swagger to Django GraphQL API
 - Create a new Flask Rest API
 - Create a new Flask GraphQL API
 - Create a new FastAPI Rest API
@@ -16,8 +15,11 @@
   - FastAPI Rest API
   - FastAPI GraphQL API
 - Run API Containers with Docker Compose
+  - Run Flask Rest API
+  - Run Flask GraphQL API
+  - Run FastAPI Rest API
+  - Run FastAPI GraphQL API
 - Deploy containerized APIs to Kubernetes Minikube
-  - Deploy Django REST API
   - Deploy Django GraphQL API
   - Deploy Flask Rest API
   - Deploy Flask GraphQL API
