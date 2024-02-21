@@ -20,6 +20,12 @@ jobs:
       - name: EditorConfig Check
         uses: editorconfig-checker/action-editorconfig-checker@v2
 
+  check-python-code-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Python Development Requirements
         run: make development-install
 
@@ -29,9 +35,28 @@ jobs:
       - name: Python Lint Check
         run: make python-lint-check
 
+  check-markdown-code-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check Markdown format
+        uses: DavidAnson/markdownlint-cli2-action@v13
+        with:
+          config: .github/workflows/config/.markdownlint.json
+
+      - name: Check Markdown links
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: "yes"
+          config-file: .github/workflows/config/markdown-check-links.json
+          base-branch: main
+          check-modified-files-only: "no"
+
   prose-check:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
