@@ -84,4 +84,6 @@ run-podman:
 
 k8s-deploy:
 	kubectl apply -f ../../deployment/django_rest/deployment.yml
+
+k8s-forward:
 	kubectl port-forward $$(kubectl get pod -l app=django-rest -o jsonpath="{.items[0].metadata.name}") 8000:8000 -n default
