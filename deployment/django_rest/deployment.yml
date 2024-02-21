@@ -7,9 +7,9 @@ spec:
     app: django-rest
   ports:
   - protocol: "TCP"
-    port: 9001
-    targetPort: 8000
-  type: LoadBalancer
+    port: 8000
+    nodePort: 30000
+  type: NodePort
 
 ---
 
@@ -27,9 +27,15 @@ spec:
       labels:
         app: django-rest
     spec:
+      automountServiceAccountToken: false
       containers:
       - name: django-rest
         image: django_rest:latest
         imagePullPolicy: Never
+        resources:
+          limits:
+            cpu: "1"
+            memory: "512Mi"
         ports:
         - containerPort: 8000
+
