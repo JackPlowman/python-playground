@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: django-graphql-service
+  name: django-rest-service
 spec:
   selector:
-    app: django-graphql
+    app: django-rest
   ports:
   - protocol: "TCP"
     port: 8000
-    nodePort: 30001
+    nodePort: 30000
   type: NodePort
 
 ---
@@ -16,21 +16,21 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: django-graphql
+  name: django-rest
 spec:
   selector:
     matchLabels:
-      app: django-graphql
+      app: django-rest
   replicas: 1
   template:
     metadata:
       labels:
-        app: django-graphql
+        app: django-rest
     spec:
       automountServiceAccountToken: false
       containers:
-      - name: django-graphql
-        image: django_graphql:latest
+      - name: django-rest
+        image: django_rest:latest
         imagePullPolicy: Never
         resources:
           limits:

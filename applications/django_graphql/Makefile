@@ -84,3 +84,12 @@ run-podman:
 		-e DJANGO_SUPERUSER_PASSWORD=sekret1 \
 		-e DJANGO_SUPERUSER_EMAIL=admin@example.com \
 		localhost/django_graphql
+
+# ----------------------------------------------------------------------------
+# Kubernetes (Minikube)
+
+k8s-deploy:
+	kubectl apply -f ../../deployment/django_graphql/deployment.yml
+
+k8s-forward:
+	kubectl port-forward $$(kubectl get pod -l app=django-graphql -o jsonpath="{.items[0].metadata.name}") 8000:8000 -n default
