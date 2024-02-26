@@ -1,9 +1,11 @@
-name: "Check for Required Pull Request Labels"
-on:
+---
+name: Check for Required Pull Request Labels
+"on":
   pull_request:
     types: [opened, labeled, unlabeled, synchronize]
 jobs:
   check-for-required-labels:
+    name: Check for Required Labels
     runs-on: ubuntu-latest
     permissions:
       issues: write
@@ -15,5 +17,5 @@ jobs:
         with:
           mode: exactly
           count: 1
-          labels: "updated-repository-visualisation"
+          labels: updated-repository-visualisation
           add_comment: true
