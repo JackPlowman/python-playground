@@ -28,6 +28,6 @@ A simple Django GraphQL API for managing blog posts.
 
 Location: `applications/django_graphql`
 
-## Code Diagram
+## Repository Visualisation
 
 ![Visualization of the codebase](./repository-visualisation.svg)
