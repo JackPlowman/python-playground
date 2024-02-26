@@ -77,9 +77,9 @@ jobs:
         with:
           working-directory: ${{ github.workspace }}/applications
           github_token: ${{ secrets.github_token }}
-          reporter: github-pr-review
+          reporter: github-check
           sqlfluff_version: "2.3.5"
           sqlfluff_command: "lint"
           config: "${{ github.workspace }}/applications/.sqlfluff"
           paths: "${{ github.workspace }}/applications"
-          fail_on_error: "true"
+          fail_on_error: true
