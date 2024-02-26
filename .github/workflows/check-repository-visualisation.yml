@@ -10,7 +10,7 @@ jobs:
       pull-requests: write
     steps:
       - name: Check for Required Labels
-        if: ${{ ! contains( github.event.pull_request.labels, 'dependencies')}}
+        if: ${{ ! contains( github.event.pull_request.labels.*.name, 'dependencies')}}
         uses: mheap/github-action-required-labels@v5
         with:
           mode: exactly
