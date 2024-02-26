@@ -1,16 +1,15 @@
-name: "Code Test"
-
-on:
+---
+name: Code Test
+"on":
   push:
     branches: [main]
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
-
 permissions:
   contents: read
-
 jobs:
   unit-test:
+    name: Run Unit Tests
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -38,8 +37,8 @@ jobs:
           name: ${{ matrix.folder }}_coverage
           path: ./applications/${{ matrix.folder }}/.coverage
           retention-days: 1
-
   sonarcloud:
+    name: SonarCloud Scan
     runs-on: ubuntu-latest
     needs: [unit-test]
     steps:
@@ -63,12 +62,5 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           projectBaseDir: .
-          args: >
-            -Dsonar.sources=applications,containers,deployment,requests
-            -Dsonar.organization=jackplowman
-            -Dsonar.projectKey=JackPlowman_python-playground
-            -Dsonar.coverage.exclusions=**/tests/**,containers,deployment,requests
-            -Dsonar.python.coverage.reportPaths=coverage.xml
-            -Dsonar.python.version=3.12
-            -Dsonar.exclusions=applications/**/manage.py,applications/**/tests/**,applications/**/api/**,applications/**/migrations/**
-            -Dsonar.cpd.exclusions=applications/**/api/**
+          args: |
+            -Dsonar.sources=applications,containers,deployment,requests -Dsonar.organization=jackplowman -Dsonar.projectKey=JackPlowman_python-playground -Dsonar.coverage.exclusions=**/tests/**,containers,deployment,requests -Dsonar.python.coverage.reportPaths=coverage.xml -Dsonar.python.version=3.12 -Dsonar.exclusions=applications/**/manage.py,applications/**/tests/**,applications/**/api/**,applications/**/migrations/** -Dsonar.cpd.exclusions=applications/**/api/**

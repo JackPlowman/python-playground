@@ -1,59 +1,51 @@
-name: "Code Quality"
-
-on:
+---
+name: Code Quality
+"on":
   push:
     branches: [main]
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
-
 permissions:
   contents: read
-
 jobs:
   check-code-quality:
+    name: Check Code Quality
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
       - name: EditorConfig Check
         uses: editorconfig-checker/action-editorconfig-checker@v2
-
   check-python-code-quality:
+    name: Check Python Code Quality
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
           cache-dependency-path: "**/requirements-dev.txt"
-
       - name: Python Development Requirements
         run: make development-install
-
       - name: Python Format Check
         run: make python-format-check
-
       - name: Python Lint Check
         run: make python-lint-check
-
   check-markdown-code-quality:
+    name: Check Markdown Code Quality
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
       - name: Check Markdown format
         uses: DavidAnson/markdownlint-cli2-action@v13
         with:
           config: .github/workflows/config/.markdownlint.json
-
       - name: Check Markdown links
         uses: gaurav-nelson/github-action-markdown-link-check@v1
         with:
@@ -61,32 +53,28 @@ jobs:
           config-file: .github/workflows/config/markdown-check-links.json
           base-branch: main
           check-modified-files-only: "no"
-
   prose-check:
+    name: Prose Check
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Install dependencies
         uses: errata-ai/vale-action@v2.1.0
         with:
           token: ${{ secrets.GH_TOKEN }}
-
   check-sql-code-quality:
+    name: Check SQL Code Quality
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
           cache-dependency-path: "**/requirements-dev.txt"
-
       - name: Install SQLFluff
         run: make development-install
-
       - name: SQLFluff Lint Check
         run: make sql-lint-check
