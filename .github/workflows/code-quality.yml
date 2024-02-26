@@ -82,5 +82,4 @@ jobs:
           sqlfluff_command: "lint"
           config: "${{ github.workspace }}/applications/.sqlfluff"
           paths: "${{ github.workspace }}/applications"
-          fail_on_error: "True"
-          filter_mode: "nofilter"
+          fail_on_error: "true"
