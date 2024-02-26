@@ -19,12 +19,17 @@ python-format:
 python-format-check:
 	ruff format --check applications
 
-python-pre-commit:
-	make python-lint python-format
-
 coverage-combine-and-report:
 	coverage combine django_rest_coverage/.coverage django_graphql_coverage/.coverage
 	coverage xml
+
+sql-lint:
+	sqlfluff lint applications
+
+# ----------------------------------------------------------------------------
+
+pre-commit:
+	make python-lint python-format sql-lint
 
 # ----------------------------------------------------------------------------
 # Docker Compose

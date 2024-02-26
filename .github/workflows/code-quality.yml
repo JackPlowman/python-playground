@@ -65,3 +65,22 @@ jobs:
         uses: errata-ai/vale-action@v2.1.0
         with:
           token: ${{ secrets.GH_TOKEN }}
+
+  check-sql-code-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: SQLFluff Check
+        uses: yu-iskw/action-sqlfluff@v3
+        with:
+          working-directory: ${{ github.workspace }}/applications
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review
+          sqlfluff_version: "2.3.5"
+          sqlfluff_command: "lint"
+          config: "${{ github.workspace }}/applications/.sqlfluff"
+          paths: "${{ github.workspace }}/applications"
+          fail_on_error: "True"
+          filter_mode: "nofilter"
