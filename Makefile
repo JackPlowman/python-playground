@@ -23,13 +23,19 @@ coverage-combine-and-report:
 	coverage combine django_rest_coverage/.coverage django_graphql_coverage/.coverage
 	coverage xml
 
-sql-lint:
+# ----------------------------------------------------------------------------
+# SQL Lint
+
+sql-lint-check:
 	sqlfluff lint applications
+
+sql-lint-fix:
+	sqlfluff fix applications
 
 # ----------------------------------------------------------------------------
 
 pre-commit:
-	make python-lint python-format sql-lint
+	make python-lint-check python-format-check sql-lint-check
 
 # ----------------------------------------------------------------------------
 # Docker Compose

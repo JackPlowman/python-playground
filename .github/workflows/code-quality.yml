@@ -26,6 +26,13 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache-dependency-path: "**/requirements-dev.txt"
+
       - name: Python Development Requirements
         run: make development-install
 
@@ -72,14 +79,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: SQLFluff Check
-        uses: yu-iskw/action-sqlfluff@v3
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
         with:
-          working-directory: ${{ github.workspace }}/applications
-          github_token: ${{ secrets.github_token }}
-          reporter: github-check
-          sqlfluff_version: "2.3.5"
-          sqlfluff_command: "lint"
-          config: "${{ github.workspace }}/applications/.sqlfluff"
-          paths: "${{ github.workspace }}/applications"
-          fail_on_error: true
+          python-version: "3.12"
+          cache-dependency-path: "**/requirements-dev.txt"
+
+      - name: Install SQLFluff
+        run: make development-install
+
+      - name: SQLFluff Lint Check
+        run: make sql-lint-check
