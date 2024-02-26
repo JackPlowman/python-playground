@@ -1,4 +1,6 @@
-INSERT INTO blog_author (id, name) VALUES (1, 'John Doe'), (2, 'Jane Doe'), (3, 'Jack Smith');
+INSERT INTO blog_author (id, name) VALUES (1, 'John Doe'),
+(2, 'Jane Doe'),
+(3, 'Jack Smith');
 
 INSERT INTO blog_post (title, content, author_id) VALUES
 ('First post', 'This is the first post', 1),
