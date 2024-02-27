@@ -20,7 +20,7 @@ python-format-check:
 	ruff format --check applications
 
 coverage-combine-and-report:
-	coverage combine django_rest_coverage/.coverage django_graphql_coverage/.coverage
+	coverage combine django_rest_coverage/.coverage django_graphql_coverage/.coverage flask_rest_coverage/.coverage
 	coverage xml
 
 # ----------------------------------------------------------------------------
