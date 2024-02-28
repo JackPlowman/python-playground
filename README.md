@@ -4,6 +4,15 @@ My personal playground for Python experimentation
 
 ## Table of Contents
 
+- [Python Playground](#python-playground)
+  - [Table of Contents](#table-of-contents)
+  - [Quick Start](#quick-start)
+  - [Projects](#projects)
+    - [Hotels - Django REST API](#hotels---django-rest-api)
+    - [Blog - Django GraphQL API](#blog---django-graphql-api)
+    - [Flask - REST API](#flask---rest-api)
+  - [Repository Visualisation](#repository-visualisation)
+
 ## Quick Start
 
 From the root of the project, run the following commands:
