@@ -21,13 +21,13 @@ def set_up_test_data() -> None:
     run_script(f"{dir_path}/data/test_data.sql")
 
 
-def run_script(script: str) -> None:
+def run_script(script_file_path: str) -> None:
     """Run a SQL script.
 
     Args:
-        script (str): The SQL script to run.
+        script_file_path (str): The SQL script file path.
     """
-    with open(script) as file:
+    with open(script_file_path) as file:
         query = file.read()
         connection.executescript(query)
         connection.commit()
