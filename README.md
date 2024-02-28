@@ -28,6 +28,12 @@ A simple Django GraphQL API for managing blog posts.
 
 Location: `applications/django_graphql`
 
+### Flask - REST API
+
+A simple Flask REST API for managing users.
+
+Location: `applications/flask_rest`
+
 ## Repository Visualisation
 
 ![Visualization of the codebase](./repository-visualisation.svg)
