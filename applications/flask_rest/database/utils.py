@@ -7,11 +7,11 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 
 def set_up_database() -> None:
     """Set up the cars table."""
-    create_table()
+    create_tables()
     set_up_test_data()
 
 
-def create_table() -> None:
+def create_tables() -> None:
     """Create the cars table if it doesn't exist."""
     run_script(f"{dir_path}/data/schema.sql")
 

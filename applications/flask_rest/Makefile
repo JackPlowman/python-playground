@@ -11,7 +11,7 @@ test:
 	make unit-test
 
 unit-test:
-	pytest
+	pytest --cov=. --cov-report term-missing
 
 clean:
 	find . \( \

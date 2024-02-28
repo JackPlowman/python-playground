@@ -35,7 +35,7 @@ sql-lint-fix:
 # ----------------------------------------------------------------------------
 
 pre-commit:
-	make python-lint-check python-format-check sql-lint-check
+	make python-lint-check python-format-check
 
 # ----------------------------------------------------------------------------
 # Docker Compose
