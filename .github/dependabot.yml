@@ -15,7 +15,7 @@ updates:
   - package-ecosystem: "pip"
     directory: "/applications"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     target-branch: "main"
     groups:
       python-dependencies:
@@ -25,23 +25,11 @@ updates:
   - package-ecosystem: "docker"
     directory: "/containers/docker/django_rest"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     target-branch: "main"
 
   - package-ecosystem: "docker"
     directory: "/containers/docker/django_graphql"
     schedule:
-      interval: "weekly"
-    target-branch: "main"
-
-  - package-ecosystem: "docker"
-    directory: "/containers/podman/django_rest"
-    schedule:
-      interval: "weekly"
-    target-branch: "main"
-
-  - package-ecosystem: "docker"
-    directory: "/containers/podman/django_graphql"
-    schedule:
-      interval: "weekly"
+      interval: "daily"
     target-branch: "main"
