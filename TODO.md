@@ -5,7 +5,10 @@
   - Apply Swagger to Django REST API
 - Improve Django GraphQL API
   - Authenticate Django GraphQL API
-- Create a new Flask Rest API
+- Improve Flask Rest API
+  - Add compel APIs
+  - Authenticate Flask Rest API
+  - Apply Swagger to Flask Rest API
 - Create a new Flask GraphQL API
 - Create a new FastAPI Rest API
 - Create a new FastAPI GraphQL API
