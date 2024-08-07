@@ -1,4 +1,4 @@
-Django == 5.0.7
+Django == 5.0.8
 graphene == 3.3.0
 graphene-django == 3.2.2
 gunicorn == 22.0.0
