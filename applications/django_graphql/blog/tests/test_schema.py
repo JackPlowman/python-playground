@@ -23,20 +23,19 @@ def post(author: Author) -> Post:
 @pytest.mark.django_db()
 def test_create_post(client: Client, author: Author) -> None:
     mutation = (
-        """
-        mutation {
-            createPost(title: "Test Post", content: "Test Content", authorId: %s) {
-                post {
+        f"""
+        mutation {{
+            createPost(title: "Test Post", content: "Test Content", authorId: {author.id}) {{
+                post {{
                     title
                     content
-                    author {
+                    author {{
                         id
-                    }
-                }
-            }
-        }
+                    }}
+                }}
+            }}
+        }}
     """
-        % author.id
     )
     expected = {
         "createPost": {"post": {"title": "Test Post", "content": "Test Content", "author": {"id": str(author.id)}}}
@@ -48,17 +47,16 @@ def test_create_post(client: Client, author: Author) -> None:
 @pytest.mark.django_db()
 def test_update_post(client: Client, post: Post) -> None:
     mutation = (
-        """
-        mutation {
-            updatePost(id: %s, title: "Updated Title", content: "Updated Content") {
-                post {
+        f"""
+        mutation {{
+            updatePost(id: {post.id}, title: "Updated Title", content: "Updated Content") {{
+                post {{
                     title
                     content
-                }
-            }
-        }
+                }}
+            }}
+        }}
     """
-        % post.id
     )
     expected = {
         "updatePost": {
@@ -75,14 +73,13 @@ def test_update_post(client: Client, post: Post) -> None:
 @pytest.mark.django_db()
 def test_delete_post(client: Client, post: Post) -> None:
     mutation = (
-        """
-        mutation {
-            deletePost(id: %s) {
+        f"""
+        mutation {{
+            deletePost(id: {post.id}) {{
                 success
-            }
-        }
+            }}
+        }}
     """
-        % post.id
     )
     expected = {
         "deletePost": {

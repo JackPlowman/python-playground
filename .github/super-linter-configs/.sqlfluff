@@ -1,0 +1,7 @@
+[sqlfluff]
+dialect = postgres
+max_line_length = 0
+
+[sqlfluff:indentation]
+tab_space_size = 2
+allow_implicit_indents = True

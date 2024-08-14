@@ -1,4 +1,5 @@
 APPLICATIONS:=django_rest,django_graphql
+RUFF_CONFIG:=--config .github/super-linter-configs/ruff.toml
 
 development-install:
 	pip install --upgrade pip && pip install -r applications/requirements-dev.txt
@@ -8,16 +9,16 @@ install:
 	find . -name "requirements.txt" -exec pip install -r {} \;
 
 python-lint:
-	ruff check applications --fix
+	ruff check $(RUFF_CONFIG) applications --fix --unsafe-fixes
 
 python-lint-check:
-	ruff check applications
+	ruff check $(RUFF_CONFIG) applications
 
 python-format:
-	ruff format applications
+	ruff format $(RUFF_CONFIG) applications
 
 python-format-check:
-	ruff format --check applications
+	ruff format $(RUFF_CONFIG) --check applications
 
 coverage-combine-and-report:
 	coverage combine django_rest_coverage/.coverage django_graphql_coverage/.coverage flask_rest_coverage/.coverage
