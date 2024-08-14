@@ -6,13 +6,12 @@ spec:
   selector:
     app: django-graphql
   ports:
-  - protocol: "TCP"
-    port: 8000
-    nodePort: 30001
+    - protocol: "TCP"
+      port: 8000
+      nodePort: 30001
   type: NodePort
 
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -29,13 +28,12 @@ spec:
     spec:
       automountServiceAccountToken: false
       containers:
-      - name: django-graphql
-        image: django_graphql:latest
-        imagePullPolicy: Never
-        resources:
-          limits:
-            cpu: "1"
-            memory: "512Mi"
-        ports:
-        - containerPort: 8000
-
+        - name: django-graphql
+          image: django_graphql:latest
+          imagePullPolicy: Never
+          resources:
+            limits:
+              cpu: "1"
+              memory: "512Mi"
+          ports:
+            - containerPort: 8000

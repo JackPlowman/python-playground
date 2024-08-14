@@ -6,13 +6,12 @@ spec:
   selector:
     app: django-rest
   ports:
-  - protocol: "TCP"
-    port: 8000
-    nodePort: 30000
+    - protocol: "TCP"
+      port: 8000
+      nodePort: 30000
   type: NodePort
 
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -29,13 +28,12 @@ spec:
     spec:
       automountServiceAccountToken: false
       containers:
-      - name: django-rest
-        image: django_rest:latest
-        imagePullPolicy: Never
-        resources:
-          limits:
-            cpu: "1"
-            memory: "512Mi"
-        ports:
-        - containerPort: 8000
-
+        - name: django-rest
+          image: django_rest:latest
+          imagePullPolicy: Never
+          resources:
+            limits:
+              cpu: "1"
+              memory: "512Mi"
+          ports:
+            - containerPort: 8000
