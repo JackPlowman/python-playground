@@ -1,4 +1,0 @@
-Codewars
-Dependabot
-Serverless
-Splunk
