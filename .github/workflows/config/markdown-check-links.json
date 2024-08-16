@@ -1,7 +1,0 @@
-{
-  "aliveStatusCodes": [
-    200
-  ],
-  "ignorePatterns": [],
-  "timeout": "5s"
-}
