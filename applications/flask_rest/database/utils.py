@@ -1,6 +1,6 @@
 import os
 import sqlite3
-from pathlib.path import Path
+from pathlib import Path
 
 connection = sqlite3.connect("cars.db", check_same_thread=False)
 dir_path = Path.parent(os.path.realpath(__file__))
