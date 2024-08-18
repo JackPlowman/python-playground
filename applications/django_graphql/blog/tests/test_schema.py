@@ -5,22 +5,22 @@ from blog.models import Author, Post
 from blog.schema import schema
 
 
-@pytest.fixture()
+@pytest.fixture
 def client() -> Client:
     return Client(schema)
 
 
-@pytest.fixture()
+@pytest.fixture
 def author() -> Author:
     return Author.objects.create(name="Test Author")
 
 
-@pytest.fixture()
+@pytest.fixture
 def post(author: Author) -> Post:
     return Post.objects.create(title="Test Post", content="Test Content", author=author)
 
 
-@pytest.mark.django_db()
+@pytest.mark.django_db
 def test_create_post(client: Client, author: Author) -> None:
     mutation = f"""
         mutation {{
@@ -42,7 +42,7 @@ def test_create_post(client: Client, author: Author) -> None:
     assert result["data"] == expected
 
 
-@pytest.mark.django_db()
+@pytest.mark.django_db
 def test_update_post(client: Client, post: Post) -> None:
     mutation = f"""
         mutation {{
@@ -66,7 +66,7 @@ def test_update_post(client: Client, post: Post) -> None:
     assert result["data"] == expected
 
 
-@pytest.mark.django_db()
+@pytest.mark.django_db
 def test_delete_post(client: Client, post: Post) -> None:
     mutation = f"""
         mutation {{

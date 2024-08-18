@@ -7,7 +7,7 @@ TEST_POST = "Test Post"
 TEST_CONTENT = "Test Content"
 
 
-@pytest.mark.django_db()
+@pytest.mark.django_db
 def test_author_attributes() -> None:
     author = Author.objects.create(name=TEST_AUTHOR)
     assert author.id is not None
@@ -18,13 +18,13 @@ def test_author_attributes() -> None:
     assert Author._meta.get_field("name").max_length == 100
 
 
-@pytest.mark.django_db()
+@pytest.mark.django_db
 def test_author_str() -> None:
     author = Author.objects.create(name=TEST_AUTHOR)
     assert str(author) == TEST_AUTHOR
 
 
-@pytest.mark.django_db()
+@pytest.mark.django_db
 def test_post_attributes() -> None:
     author = Author.objects.create(name=TEST_AUTHOR)
     post = Post.objects.create(title=TEST_POST, content=TEST_CONTENT, author=author)
@@ -38,7 +38,7 @@ def test_post_attributes() -> None:
     assert post.author == author
 
 
-@pytest.mark.django_db()
+@pytest.mark.django_db
 def test_post_str() -> None:
     author = Author.objects.create(name=TEST_AUTHOR)
     post = Post.objects.create(title=TEST_POST, content=TEST_CONTENT, author=author)
