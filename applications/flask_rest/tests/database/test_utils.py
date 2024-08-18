@@ -29,7 +29,7 @@ def test_set_up_test_data(mock_run_script: MagicMock) -> None:
     mock_run_script.assert_called_once_with(f"{MOCK_DIR_PATH}/data/test_data.sql")
 
 
-@patch("builtins.open", mock_open(read_data=QUERY))
+@patch("pathlib.Path.open", mock_open(read_data=QUERY))
 @patch(f"{FILE_PATH}.connection")
 def test_run_script(mock_connection: MagicMock) -> None:
     run_script("script_file_path")

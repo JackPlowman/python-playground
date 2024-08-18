@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import Any, Self
 
 from graphene import ID, Boolean, Field, List, Mutation, ObjectType, Schema, String
