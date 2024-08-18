@@ -8,14 +8,14 @@ from hotels.views import HotelsDetailApiView, HotelsListApiView
 class TestHotelsListApiView:
     """Test case for the HotelsListApiView view."""
 
-    @pytest.mark.django_db()
+    @pytest.mark.django_db
     def test_get(self: Self) -> None:
         view = HotelsListApiView()
         response = view.get(None)
         assert response.status_code == 200
         assert response.data == []
 
-    @pytest.mark.django_db()
+    @pytest.mark.django_db
     def test_post(self: Self) -> None:
         view = HotelsListApiView()
         request = type("Request", (), {"data": {"name": "Hotel1", "address": "Address1", "phone": "Phone1"}})
@@ -33,7 +33,7 @@ class TestHotelsListApiView:
 class TestHotelsDetailApiView:
     """Test case for the HotelsDetailApiView view."""
 
-    @pytest.mark.django_db()
+    @pytest.mark.django_db
     def test_get_hotel_not_found(self: Self) -> None:
         view = HotelsDetailApiView()
         request = type("Request", (), {"data": {"name": "Hotel1", "address": "Address1", "phone": "Phone1"}})
@@ -41,7 +41,7 @@ class TestHotelsDetailApiView:
         assert response.status_code == 400
         assert response.data == {"response": "Object with hotel id does not exists"}
 
-    @pytest.mark.django_db()
+    @pytest.mark.django_db
     def test_get(self: Self) -> None:
         view = HotelsListApiView()
         request = type("Request", (), {"data": {"name": "Hotel1", "address": "Address1", "phone": "Phone1"}})
@@ -58,7 +58,7 @@ class TestHotelsDetailApiView:
         assert response.data["address"] == "Address1"
         assert response.data["phone"] == "Phone1"
 
-    @pytest.mark.django_db()
+    @pytest.mark.django_db
     def test_put(self: Self) -> None:
         view = HotelsListApiView()
         request = type("Request", (), {"data": {"name": "Hotel1", "address": "Address1", "phone": "Phone1"}})
@@ -75,7 +75,7 @@ class TestHotelsDetailApiView:
         assert response.data["address"] == "Address2"
         assert response.data["phone"] == "Phone2"
 
-    @pytest.mark.django_db()
+    @pytest.mark.django_db
     def test_delete(self: Self) -> None:
         view = HotelsListApiView()
         request = type("Request", (), {"data": {"name": "Hotel1", "address": "Address1", "phone": "Phone1"}})
