@@ -1,12 +1,16 @@
-from typing import Self
+from __future__ import annotations
 
-from django.http import HttpRequest, HttpResponse
+from typing import TYPE_CHECKING, Self
+
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .models import Hotels
 from .serializer import HotelsSerializer
+
+if TYPE_CHECKING:
+    from django.http import HttpRequest, HttpResponse
 
 HOTEL_NOT_FOUND = "Object with hotel id does not exists"
 

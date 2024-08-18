@@ -1,8 +1,8 @@
-import os
 import sqlite3
+from pathlib import Path, PurePath
 
 connection = sqlite3.connect("cars.db", check_same_thread=False)
-dir_path = os.path.dirname(os.path.realpath(__file__))
+dir_path = PurePath(__file__).parent
 
 
 def set_up_database() -> None:
@@ -27,7 +27,7 @@ def run_script(script_file_path: str) -> None:
     Args:
         script_file_path (str): The SQL script file path.
     """
-    with open(script_file_path) as file:
+    with Path.open(script_file_path) as file:
         query = file.read()
         connection.executescript(query)
         connection.commit()
