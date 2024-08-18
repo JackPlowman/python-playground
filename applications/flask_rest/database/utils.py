@@ -1,10 +1,9 @@
 import os
 import sqlite3
-from pathlib import Path
+from pathlib import Path, PurePath
 
 connection = sqlite3.connect("cars.db", check_same_thread=False)
-dir_path = Path.parent(os.path.realpath(__file__))
-
+dir_path = PurePath(__file__).parent
 
 def set_up_database() -> None:
     """Set up the cars table."""
