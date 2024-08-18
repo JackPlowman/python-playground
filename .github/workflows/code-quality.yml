@@ -39,6 +39,7 @@ jobs:
           VALIDATE_CHECKOV: false # Consider enabling this
 
   check-python-code-quality:
+    name: Check Python Code Quality
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
