@@ -22,8 +22,7 @@ def post(author: Author) -> Post:
 
 @pytest.mark.django_db()
 def test_create_post(client: Client, author: Author) -> None:
-    mutation = (
-        f"""
+    mutation = f"""
         mutation {{
             createPost(title: "Test Post", content: "Test Content", authorId: {author.id}) {{
                 post {{
@@ -36,7 +35,6 @@ def test_create_post(client: Client, author: Author) -> None:
             }}
         }}
     """
-    )
     expected = {
         "createPost": {"post": {"title": "Test Post", "content": "Test Content", "author": {"id": str(author.id)}}}
     }
@@ -46,8 +44,7 @@ def test_create_post(client: Client, author: Author) -> None:
 
 @pytest.mark.django_db()
 def test_update_post(client: Client, post: Post) -> None:
-    mutation = (
-        f"""
+    mutation = f"""
         mutation {{
             updatePost(id: {post.id}, title: "Updated Title", content: "Updated Content") {{
                 post {{
@@ -57,7 +54,6 @@ def test_update_post(client: Client, post: Post) -> None:
             }}
         }}
     """
-    )
     expected = {
         "updatePost": {
             "post": {
@@ -72,15 +68,13 @@ def test_update_post(client: Client, post: Post) -> None:
 
 @pytest.mark.django_db()
 def test_delete_post(client: Client, post: Post) -> None:
-    mutation = (
-        f"""
+    mutation = f"""
         mutation {{
             deletePost(id: {post.id}) {{
                 success
             }}
         }}
     """
-    )
     expected = {
         "deletePost": {
             "success": True,
