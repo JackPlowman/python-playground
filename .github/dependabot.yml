@@ -17,7 +17,7 @@ updates:
       - "applications/django_graphql"
       - "applications/flask_rest"
     schedule:
-      interval: "daily"
+      interval: "monthly"
     target-branch: "main"
     groups:
       python-dependencies:
@@ -29,5 +29,5 @@ updates:
       - "/containers/docker/django_rest"
       - "/containers/docker/django_graphql"
     schedule:
-      interval: "daily"
+      interval: "monthly"
     target-branch: "main"
