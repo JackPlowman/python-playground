@@ -11,8 +11,16 @@ jobs:
       issues: write
       pull-requests: write
     steps:
+      - name: Get changed files in the applications folder
+        id: changed-files-specific
+        uses: tj-actions/changed-files@v44
+        with:
+          files: applications/**
+          files_ignore: |
+            applications/requirements-dev.txt
+            applications/*/requirements.txt
       - name: Check for Required Labels
-        if: ${{ ! contains( github.event.pull_request.labels.*.name, 'dependencies')}}
+        if: ${{ !contains( github.event.pull_request.labels.*.name, 'dependencies') && steps.changed-files-specific.outputs.any_changed == 'true' }}
         uses: mheap/github-action-required-labels@v5
         with:
           mode: exactly
