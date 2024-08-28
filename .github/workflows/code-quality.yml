@@ -56,3 +56,20 @@ jobs:
         run: make python-format-check
       - name: Python Lint Check
         run: make python-lint-check
+
+  check-markdown-links:
+    name: Check Markdown links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check Markdown links
+        uses: UmbrellaDocs/action-linkspector@v1.1.3
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          config_file: .github/other-configs/.linkspector.yaml
+          reporter: github-pr-review
+          fail_on_error: true
+          filter_mode: nofilter
