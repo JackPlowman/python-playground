@@ -1,6 +1,4 @@
-files:
-  - README.md
-  - TODO.md
-  - LICENSE
+dirs:
+  - ./
 aliveStatusCodes:
   - 200
