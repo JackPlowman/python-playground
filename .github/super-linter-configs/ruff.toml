@@ -1,5 +1,6 @@
 line-length = 120
 output-format = "github"
+target-version = "py313"
 
 [lint]
 # Add the `line-too-long` rule to the enforced rule set.
