@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Get changed files in the applications folder
         id: changed-files-specific
-        uses: tj-actions/changed-files@v45
+        uses: tj-actions/changed-files@v45.0.3
         with:
           files: applications/**
           files_ignore: |
@@ -21,7 +21,7 @@ jobs:
             applications/*/requirements.txt
       - name: Check for Required Labels
         if: ${{ !contains( github.event.pull_request.labels.*.name, 'dependencies') && steps.changed-files-specific.outputs.any_changed == 'true' }}
-        uses: mheap/github-action-required-labels@v5
+        uses: mheap/github-action-required-labels@v5.4.1
         with:
           mode: exactly
           count: 1

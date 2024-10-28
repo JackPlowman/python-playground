@@ -11,7 +11,7 @@ jobs:
     if: ${{ github.event.label.name == 'awaiting-repository-visualisation' }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
@@ -22,11 +22,12 @@ jobs:
           excluded_paths: .github
           output_file: repository-visualisation.svg
       - name: Remove awaiting label
-        uses: actions-ecosystem/action-remove-labels@v1
+        uses: actions-ecosystem/action-remove-labels@v1.3.0
         with:
           labels: awaiting-repository-visualisation
           github_token: ${{ secrets.GH_TOKEN }}
       - name: Add completed label
-        uses: actions-ecosystem/action-add-labels@v1
+        uses: actions-ecosystem/action-add-labels@v1.1.0
         with:
           labels: updated-repository-visualisation
+          github_token: ${{ secrets.GH_TOKEN }}
