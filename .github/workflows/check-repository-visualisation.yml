@@ -21,7 +21,7 @@ jobs:
             applications/*/requirements.txt
       - name: Check for Required Labels
         if: ${{ !contains( github.event.pull_request.labels.*.name, 'dependencies') && steps.changed-files-specific.outputs.any_changed == 'true' }}
-        uses: mheap/github-action-required-labels@v5.4.1
+        uses: mheap/github-action-required-labels@v5.4.2
         with:
           mode: exactly
           count: 1
