@@ -2,6 +2,9 @@
 
 My personal playground for Python experimentation
 
+> [!WARNING]
+> This project has been sunsetted and is no longer maintained. I've moved on to other projects and have built new projects in their own repositories.
+
 ## Table of Contents
 
 - [Python Playground](#python-playground)
